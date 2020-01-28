@@ -1,0 +1,26 @@
+syntax: glob
+
+.bin/**
+.tscache/**
+*.csproj
+*.suo
+*.ide
+*.cache
+*.ide-shm
+*.ide-wal
+*.config
+*.pdb
+*.exe
+*.obj
+*.pdb
+*.[Cc]ache
+*.ilk
+*.log
+*.lib
+*.sbr
+*.scc
+*.DotSettings
+[Bb]in
+[Dd]ebug*/**
+obj/
+
