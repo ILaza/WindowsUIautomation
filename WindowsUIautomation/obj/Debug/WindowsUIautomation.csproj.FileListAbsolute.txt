@@ -1,0 +1,6 @@
+C:\Users\ilaza\source\repos\WindowsUIautomation\WindowsUIautomation\bin\Debug\WindowsUIautomation.exe.config
+C:\Users\ilaza\source\repos\WindowsUIautomation\WindowsUIautomation\bin\Debug\WindowsUIautomation.exe
+C:\Users\ilaza\source\repos\WindowsUIautomation\WindowsUIautomation\bin\Debug\WindowsUIautomation.pdb
+C:\Users\ilaza\source\repos\WindowsUIautomation\WindowsUIautomation\obj\Debug\WindowsUIautomation.csprojAssemblyReference.cache
+C:\Users\ilaza\source\repos\WindowsUIautomation\WindowsUIautomation\obj\Debug\WindowsUIautomation.exe
+C:\Users\ilaza\source\repos\WindowsUIautomation\WindowsUIautomation\obj\Debug\WindowsUIautomation.pdb

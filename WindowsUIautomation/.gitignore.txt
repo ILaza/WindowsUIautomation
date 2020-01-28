@@ -2,13 +2,12 @@ syntax: glob
 
 .bin/**
 .tscache/**
-*.csproj
+
 *.suo
 *.ide
 *.cache
 *.ide-shm
 *.ide-wal
-*.config
 *.pdb
 *.exe
 *.obj
