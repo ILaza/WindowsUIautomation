@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using WindowsUIautomation.Patterns;
 using WindowsUIautomation.Features;
 
 namespace WindowsUIautomation
@@ -16,6 +12,7 @@ namespace WindowsUIautomation
             //ObtainElementsFeature.ObtainOneElementByName();
             //ObtainElementsFeature.GetAutomationElementInformation();
             ObtainElementsFeature.GetElementInvokeMethodCloseWindow();
+            //PatternsFeatures.ExpandComboBoxByExpandCollapsPattern();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Automation;
+using WindowsUIautomation.Patterns;
 
 namespace WindowsUIautomation.Features
 {
@@ -19,18 +20,30 @@ namespace WindowsUIautomation.Features
             Console.WriteLine();
         }
 
-        public static AutomationElement ObtainOneElementByName()
+        public static AutomationElement ObtainOneElementByName(string name)
         {
-                var cond = new PropertyCondition(AutomationElement.NameProperty, "Open");
-                var automationElement = AutomationElement.RootElement.FindFirst(TreeScope.Descendants, cond);
-                Console.WriteLine($"{automationElement.Current.Name},  {automationElement.Current.Name}");
-                return automationElement;
+            var cond = new PropertyCondition(AutomationElement.NameProperty, name);
+            var automationElement = AutomationElement.RootElement.FindFirst(TreeScope.Descendants, cond);
+            Console.WriteLine($"{automationElement.Current.Name}");
+            return automationElement;
+        }
+        public static AutomationElement ObtainOneElementByName(AutomationElement rootElement, string name)
+        {
+            var cond = new PropertyCondition(AutomationElement.NameProperty, name);
+            var automationElement = rootElement.FindFirst(TreeScope.Descendants, cond);
+            Console.WriteLine($"{automationElement.Current.Name}");
+            return automationElement;
         }
         public static AutomationElement ObtainOneElementByID(string id)
         {
             var cond = new PropertyCondition(AutomationElement.AutomationIdProperty, id);
             var automationElement = AutomationElement.RootElement.FindFirst(TreeScope.Descendants, cond);
-            //Console.WriteLine($"{automationElement.Current.Name}");
+            return automationElement;
+        }
+        public static AutomationElement ObtainOneElementByID(AutomationElement rootElement, string id)
+        {
+            var cond = new PropertyCondition(AutomationElement.AutomationIdProperty, id);
+            var automationElement = rootElement.FindFirst(TreeScope.Descendants, cond);
             return automationElement;
         }
 
@@ -46,7 +59,7 @@ namespace WindowsUIautomation.Features
 
         public static void GetAutomationElementInformation()
         {
-            var element = ObtainOneElementByName();
+            var element = ObtainOneElementByName("Open");
             Console.WriteLine($"{element.Current.ControlType} = {element.Current.ControlType.ProgrammaticName}");
         }
 
@@ -55,11 +68,14 @@ namespace WindowsUIautomation.Features
             var cond = new PropertyCondition(AutomationElement.NameProperty, "Open");
             var automationElement = AutomationElement.RootElement.FindFirst(TreeScope.Descendants, cond);
 
+           
+
             cond = new PropertyCondition(AutomationElement.AutomationIdProperty, "RepositoryBrowser");
             var cond1 = new PropertyCondition(AutomationElement.IsContentElementProperty, true);
             var cond2 = new PropertyCondition(AutomationElement.IsEnabledProperty, true);
             TreeWalker treeWalker = new TreeWalker(new AndCondition(cond, cond2, cond1));
             var centerPart = treeWalker.GetFirstChild(AutomationElement.RootElement);
+
             //var centerPart = automationElement.FindFirst(TreeScope.Descendants, cond);
 
             Console.WriteLine($"{centerPart.Current.AutomationId}");
@@ -74,13 +90,21 @@ namespace WindowsUIautomation.Features
 
             Console.WriteLine($" IsEnabledProperty - {comboBox.GetCurrentPropertyValue(AutomationElement.IsEnabledProperty)}");
             Console.WriteLine($" IsExpandCollapsePatternAvailableProperty - {comboBox.GetCurrentPropertyValue(AutomationElement.IsExpandCollapsePatternAvailableProperty)}");
-            var point = comboBox.GetClickablePoint();
-            System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)clickablePoint.X, (int)clickablePoint.Y);
+            //var point = comboBox.GetClickablePoint();
+            //System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)clickablePoint.X, (int)clickablePoint.Y);
+            PatternsFeatures.InvokeAutomationElement(buttonWorkspace);
+
+            var textInputElement = ObtainOneElementByID("ProfileAttribute Id:1; Name:Client");
+            PatternsFeatures.FillTextBoxByTextPattern(textInputElement);
 
 
 
 
-
+            //var windowPattern = automationElement.GetCurrentPattern(WindowPattern.Pattern) as WindowPattern;
+            //windowPattern.Close();
+            //InvokeAutomationElement(buttonWorkspace);
         }
+
+        
     }
 }
